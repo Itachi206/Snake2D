@@ -7,6 +7,9 @@ TagManager:
   - Food
   - Obstacle
   - Wall
+  - PoisonFood
+  - Snake1
+  - Snake2
   layers:
   - Default
   - TransparentFX

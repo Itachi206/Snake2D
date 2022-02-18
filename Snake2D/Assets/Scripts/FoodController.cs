@@ -21,14 +21,19 @@ public class FoodController : MonoBehaviour
 
         //assigm food position to this coordinates and round those values to get whole numbers
         this.transform.position = new Vector3(Mathf.Round(x), Mathf.Round(y), 0.0f);
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSecondsRealtime(3f);
+        // Destroy(gameObject);
+        
 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         //when snake collide with the food it should again regenerate at new position
-        if(other.tag == "Player")
+        if (other.tag == "Snake1") 
+        {
+            StartCoroutine(RandomizeFoodPosition());
+        }else if(other.tag == "Snake2")
         {
             StartCoroutine(RandomizeFoodPosition());
         }
